@@ -1,0 +1,49 @@
+ <profiles>
+        <profile>
+            <id>windows</id>
+            <activation>              
+              <os>
+                <family>Windows</family>
+              </os>
+            </activation>
+            <properties>                <repository.base.url>file:///c:/maven_distribution_repo/</repository.base.url>
+            </properties>           
+        </profile>
+        <profile>
+            <id>linux</id>
+            <activation>              
+              <os>
+                <family>Linux</family>
+              </os>
+            </activation>
+            <properties>
+<repository.base.url>file:///appli/Maven_3.1.1_build/maven_distribution_repo/</repository.base.url>         
+            </properties>           
+            <repositories>
+                <repository>
+                  <id>central</id>
+                  <name>Maven Plugin Repository</name>
+                  <!--<url>http://repo1.maven.org/maven2</url>-->
+                  <url>${repository.base.url}</url>
+                  <releases>
+                    <enabled>false</enabled>
+                  </releases>
+                </repository>   
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <name>Maven Plugin Repository</name>
+                    <!--<url>http://repo1.maven.org/maven2</url>-->
+                    <url>${repository.base.url}</url>
+                    <layout>default</layout>
+                        <snapshots>
+                            <enabled>false</enabled>
+                        </snapshots>
+                        <releases>
+                            <updatePolicy>never</updatePolicy>
+                        </releases>
+                </pluginRepository>
+            </pluginRepositories> 
+        </profile>
+    </profiles>
